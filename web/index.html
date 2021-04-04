@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Running Excuse Generator</title>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <!-- vue.min.js -->
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+
+    .text {
+      font-size: 400%;
+      text-align: center;
+    }
+
+    .button {
+      background-color: #FFFFFF;
+      color: #000000;
+      ;
+      padding: 10px;
+      border-radius: 10px;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      margin: 0 auto;
+
+
+
+    }
+
+    .small-btn {
+      width: 50px;
+      height: 25px;
+    }
+
+    .medium-btn {
+      width: 70px;
+      height: 30px;
+    }
+
+    .big-btn {
+      font-size: 100%;
+      width: 200px;
+      height: auto;
+      font-size: 50%;
+      text-align: center;
+      /* padding: 20px; */
+      /* margin: 20px auto; */
+      /* position: relative; */
+      /* margin-top: 10%; */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div style="text-align: center" id="app">
+      <h1>{{ message }}</h1>
+    </div> -->
+  <br /><br />
+  <div class="text" id="excuse">
+    <div class="button big-btn" v-on:click="changeExcuse">Change Excuse</div>
+
+    {{ selectedExcuse }}
+
+  </div>
+  <script>
+    // var app = new Vue({
+    //   el: "#app",
+    //   data: {
+    //     message: "Running Excuse Generator",
+    //   },
+    // });
+    var excuse = new Vue({
+      el: "#excuse",
+      methods: {
+        changeExcuse: function () {
+          var idx = Math.floor(Math.random() * this.excuses.length);
+          this.selectedExcuse = this.excuses[idx];
+          console.log(idx);
+        }
+      },
+      data: {
+        excuses: [
+          "My tire pressure sensor went off",
+          "My husband kept me up snoring",
+          "My shoelace broke",
+          "It's raining",
+          "It could rain",
+          "It rained yesterday",
+          "Forecast said rain today",
+          "My cat has a bladder infection",
+          "I have a blister",
+          "My sciatica is acting up",
+          "I set my alarm wrong",
+          "My phone hates me",
+          "It's too cold",
+          "It's too hot",
+          "I have a headache",
+          "My garage door won't open",
+          "The power is out",
+          "COVID",
+          "Dietary indiscretion",
+          "I'm tapering",
+          "Sore from lifting",
+        ],
+        selectedExcuse: "",
+      },
+
+      created() {
+        var idx = Math.floor(Math.random() * this.excuses.length);
+        console.log(idx);
+        console.log(Math.random());
+        this.selectedExcuse = this.excuses[idx];
+      },
+    });
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+version: '3'
+services:
+  runningexcuses:
+    image: nginx_log:latest
+    ports:
+      - 6661:8080
+    volumes: 
+      - /home/glamke/docker/RunningExcuses/web:/static
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:runningexcuses.lamkerad.com"
+      - "traefik.backend=runningexcuses"
+      - "traefik.port=8080"
+      - "traefik.docker.network=web"
+      - "traefik.frontend.entryPoints=http,https"
+      - "traefik.frontend.headers.SSLHost=lamkerad.com"
+    networks:
+      - web
+    
+networks:
+  web:
+    external: true

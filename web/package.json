@@ -1,0 +1,14 @@
+{
+    "name": "vue-20-Running-Excuse-Generator",
+    "version": "1.0.0",
+    "description": "Running Excuse Generator in VueJS",
+    "main": "index.html",
+    "scripts": {
+      "start": "serve"
+    },
+    "keywords": [],
+    "license": "MIT",
+    "devDependencies": {
+      "serve": "^11.2.0"
+    }
+  }
